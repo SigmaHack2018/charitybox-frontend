@@ -14,7 +14,7 @@ const styles = theme => ({
     },
     formControl: {
         margin: theme.spacing.unit,
-        minWidth: 120,
+        minWidth: 240,
         'text-align': 'center'
     },
     selectEmpty: {
@@ -24,16 +24,20 @@ const styles = theme => ({
 
 const LoginView = ({classes}) => (
     <form action="">
-        <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="name-input">Name</InputLabel>
-            <Input id="name-input"/>
-            <FormHelperText>Username</FormHelperText>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="password-input">Name</InputLabel>
-            <Input id="password-input" type={'password'}/>
-            <FormHelperText>Password</FormHelperText>
-        </FormControl>
+        <Grid>
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="name-input">Name</InputLabel>
+                <Input id="name-input"/>
+                <FormHelperText>Username</FormHelperText>
+            </FormControl>
+        </Grid>
+        <Grid>
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="password-input">Name</InputLabel>
+                <Input id="password-input" type={'password'}/>
+                <FormHelperText>Password</FormHelperText>
+            </FormControl>
+        </Grid>
         <Grid>
             <Button>Submit</Button>
         </Grid>

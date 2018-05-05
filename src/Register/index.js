@@ -14,7 +14,7 @@ const styles = theme => ({
     },
     formControl: {
         margin: theme.spacing.unit,
-        minWidth: 120,
+        minWidth: 240,
         'text-align': 'center'
     },
     selectEmpty: {
@@ -24,16 +24,27 @@ const styles = theme => ({
 
 const RegisterView = ({classes}) => (
     <form action="">
-        <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="name-input">Name</InputLabel>
-            <Input id="name-input"/>
-            <FormHelperText>Alignment with an input</FormHelperText>
-        </FormControl>
-        <FormControl className={classes.formControl}>
-            <InputLabel htmlFor="name-input">Name</InputLabel>
-            <Input id="email-input"/>
-            <FormHelperText>Email (optional)</FormHelperText>
-        </FormControl>
+        <Grid>
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="name-input">Name</InputLabel>
+                <Input id="name-input"/>
+                <FormHelperText>Alignment with an input</FormHelperText>
+            </FormControl>
+        </Grid>
+        <Grid>
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="name-input">Name</InputLabel>
+                <Input id="email-input"/>
+                <FormHelperText>Email (optional)</FormHelperText>
+            </FormControl>
+        </Grid>
+        <Grid>
+            <FormControl className={classes.formControl}>
+                <InputLabel htmlFor="password-input">Name</InputLabel>
+                <Input id="password-input" type={'password'}/>
+                <FormHelperText>Password</FormHelperText>
+            </FormControl>
+        </Grid>
         <Grid>
             <Button>Submit</Button>
         </Grid>

@@ -46,7 +46,7 @@ class App extends Component {
                     </Grid>
                 </Grid>
                 <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
-                    <Grid item xs={8} align={'center'}>
+                    <Grid item xs={12} align={'center'}>
                         <Login></Login>
                     </Grid>
                 </Grid>
