@@ -35,7 +35,7 @@ class App extends Component {
                             <MenuIcon/>
                         </IconButton>
                         <Typography variant="title" color="inherit" className={classes.flex}>
-                            SwedeBox
+                            CharityBox
                         </Typography>
                         <Button color="inherit">Login</Button>
                     </Toolbar>
