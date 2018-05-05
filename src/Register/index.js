@@ -26,21 +26,18 @@ const RegisterView = ({classes}) => (
     <form action="">
         <Grid>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="name-input">Name</InputLabel>
                 <Input id="name-input"/>
                 <FormHelperText>Alignment with an input</FormHelperText>
             </FormControl>
         </Grid>
         <Grid>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="name-input">Name</InputLabel>
                 <Input id="email-input"/>
                 <FormHelperText>Email (optional)</FormHelperText>
             </FormControl>
         </Grid>
         <Grid>
             <FormControl className={classes.formControl}>
-                <InputLabel htmlFor="password-input">Name</InputLabel>
                 <Input id="password-input" type={'password'}/>
                 <FormHelperText>Password</FormHelperText>
             </FormControl>
