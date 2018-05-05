@@ -37,7 +37,6 @@ class App extends Component {
                         <Typography variant="title" color="inherit" className={classes.flex}>
                             CharityBox
                         </Typography>
-                        <Button color="inherit">Login</Button>
                     </Toolbar>
                 </AppBar>
                 <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
