@@ -26,41 +26,59 @@ const styles = theme => ({
 });
 
 class RegisterView extends Component {
-
     state = {
-        userType: 'giver'
+        userType: 'giver',
+        name: '',
+        email: '',
+        password: ''
     };
 
-    handleUserTypeChange = (event) => {
-        this.setState({userType: event.target.value});
-    }
+    handleUserTypeChange = (event) => this.setState({userType: event.target.value});
+
+    handleSubmit = (event) => {
+        this.props.onRegister(this.state);
+        event.preventDefault();
+    };
+
+    handleNameChange = event => this.setState({name: event.target.value});
+
+    handleEmailChange = event => this.setState({email: event.target.value});
+
+    handlePasswordChange = event => this.setState({password: event.target.value});
 
     render() {
         const {classes} = this.props;
 
         return (
-            <form action="">
+            <form action="#" onSubmit={this.handleSubmit}>
                 <Grid>
                     <FormControl className={classes.formControl}>
-                        <Input id="name-input"/>
-                        <FormHelperText>Alignment with an input</FormHelperText>
+                        <Input id="name-input"
+                               value={this.state.name}
+                               onChange={this.handleNameChange}/>
+                        <FormHelperText>Your name</FormHelperText>
                     </FormControl>
                 </Grid>
                 <Grid>
                     <FormControl className={classes.formControl}>
-                        <Input id="email-input"/>
+                        <Input id="email-input"
+                               value={this.state.email}
+                               onChange={this.handleEmailChange}/>
                         <FormHelperText>Email (optional)</FormHelperText>
                     </FormControl>
                 </Grid>
                 <Grid>
                     <FormControl className={classes.formControl}>
-                        <Input id="password-input" type={'password'}/>
+                        <Input id="password-input"
+                               type={'password'}
+                               value={this.state.password}
+                               onChange={this.handlePasswordChange}/>
                         <FormHelperText>Password</FormHelperText>
                     </FormControl>
                 </Grid>
                 <RadioGroup
-                    aria-label="gender"
-                    name="gender2"
+                    aria-label="user type"
+                    name="userType"
                     className={classes.centerGroup}
                     value={this.state.userType}
                     onChange={this.handleUserTypeChange}
@@ -73,15 +91,14 @@ class RegisterView extends Component {
                                       control={<Radio color="primary"/>}
                                       label="Reciever"/>
                 </RadioGroup>
-                <Grid>
-                    <Button>Submit</Button>
-                </Grid>
+                <Button type={'submit'}>Submit</Button>
             </form>);
     }
 }
 
 RegisterView.propTypes = {
     classes: PropTypes.object.isRequired,
+    onRegister: PropTypes.func
 };
 
 export default withStyles(styles)(RegisterView);

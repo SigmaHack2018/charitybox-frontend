@@ -8,6 +8,7 @@ import IconButton from 'material-ui/IconButton';
 import Grid from 'material-ui/Grid';
 import MenuIcon from '@material-ui/icons/Menu';
 import Register from './Register';
+import {merge} from 'lodash';
 import Login from './Login';
 
 const styles = {
@@ -24,6 +25,14 @@ const styles = {
 };
 
 class App extends Component {
+    state = {
+        userData: null
+    };
+
+    updateAppState = (newState) => {
+        this.setState(merge({}, this.state, newState))
+    };
+
     render() {
         const {classes} = this.props;
         return (
@@ -38,14 +47,13 @@ class App extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-                <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
+
+                <Grid container spacing={24}
+                      alignItems={'center'}
+                      direction={'row'}
+                      justify={'center'}>
                     <Grid item xs={8} align={'center'}>
-                        <Register></Register>
-                    </Grid>
-                </Grid>
-                <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
-                    <Grid item xs={12} align={'center'}>
-                        <Login></Login>
+                        <Register onRegister={userData => this.updateAppState({userData})}/>
                     </Grid>
                 </Grid>
             </div>
