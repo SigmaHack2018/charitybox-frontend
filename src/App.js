@@ -10,6 +10,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Register from './Register';
 import {merge} from 'lodash';
 import Login from './Login';
+import Welcome from './Welcome';
 
 const styles = {
     root: {
@@ -26,17 +27,30 @@ const styles = {
 
 class App extends Component {
     state = {
-        userData: null
+        userData: null,
+        view: 'welcome'
     };
 
     updateAppState = (newState) => {
         this.setState(merge({}, this.state, newState))
     };
 
+    getView = () => {
+        switch (this.state.view) {
+            case 'welcome':
+                return (<Welcome onSelection={selection => this.updateAppState({view: selection})}/>);
+            case 'register':
+                return (<Register onRegister={userData => this.updateAppState({userData})}/>);
+            default:
+                return (<Welcome onSelection={selection => this.updateAppState({view: selection})}/>)
+        }
+    };
+
     render() {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
+
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -53,7 +67,7 @@ class App extends Component {
                       direction={'row'}
                       justify={'center'}>
                     <Grid item xs={8} align={'center'}>
-                        <Register onRegister={userData => this.updateAppState({userData})}/>
+                        {this.getView()}
                     </Grid>
                 </Grid>
             </div>
