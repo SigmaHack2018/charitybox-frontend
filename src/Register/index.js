@@ -50,7 +50,7 @@ class RegisterView extends Component {
         const {classes} = this.props;
 
         return (
-            <form action="#" onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleSubmit}>
                 <Grid>
                     <FormControl className={classes.formControl}>
                         <Input id="name-input"

@@ -32,6 +32,7 @@ class App extends Component {
     };
 
     updateAppState = (newState) => {
+        console.log('Updating state', newState)
         this.setState(merge({}, this.state, newState))
     };
 
@@ -41,6 +42,8 @@ class App extends Component {
                 return (<Welcome onSelection={selection => this.updateAppState({view: selection})}/>);
             case 'register':
                 return (<Register onRegister={userData => this.updateAppState({userData})}/>);
+            case 'login':
+                return (<Login onLogin={userData => this.updateAppState({userData})}/>);
             default:
                 return (<Welcome onSelection={selection => this.updateAppState({view: selection})}/>)
         }
@@ -50,7 +53,6 @@ class App extends Component {
         const {classes} = this.props;
         return (
             <div className={classes.root}>
-
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
@@ -61,7 +63,6 @@ class App extends Component {
                         </Typography>
                     </Toolbar>
                 </AppBar>
-
                 <Grid container spacing={24}
                       alignItems={'center'}
                       direction={'row'}
