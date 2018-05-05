@@ -8,8 +8,8 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Grid from 'material-ui/Grid';
 import MenuIcon from '@material-ui/icons/Menu';
-import RegistrationView from './Register';
-import Paper from 'material-ui/Paper';
+import Register from './Register';
+import Login from './Login';
 
 const styles = {
     root: {
@@ -42,9 +42,14 @@ class App extends Component {
                 </AppBar>
                 <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
                     <Grid item xs={8} align={'center'}>
-                        <RegistrationView></RegistrationView>
+                        <Register></Register>
                     </Grid>
-                </Grid>.
+                </Grid>
+                <Grid container spacing={24} alignItems={'center'} direction={'row'} justify={'center'}>
+                    <Grid item xs={8} align={'center'}>
+                        <Login></Login>
+                    </Grid>
+                </Grid>
             </div>
         );
     }
